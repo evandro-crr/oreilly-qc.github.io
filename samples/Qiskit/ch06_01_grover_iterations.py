@@ -33,6 +33,7 @@ def main():
         qc.barrier()
         x_bits = ~number_to_flip
         x_list = [reg[x] for x in range(len(reg)) if x_bits & (1 << x)]
+        print(bin(number_to_flip), x_list)
         qc.x(x_list)
         multi_cz([x for x in reg])
         qc.x(x_list)
